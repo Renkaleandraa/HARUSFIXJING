@@ -63,7 +63,7 @@ img {
 }
 
 .hero h4 span {
-  font-size: 2rem;
+  font-size: 7rem;
   font-weight: bold;
   display: block;
   margin-top: 5px;
@@ -103,15 +103,15 @@ img {
   }
 
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 4rem;
   }
 
   .hero h4 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   .hero p {
-    font-size: 1.2rem;
+    font-size: 2rem;
   }
 }
 
