@@ -50,7 +50,7 @@ img {
   display: flex;
   align-items: flex-start; /* dari tengah ke atas */
   justify-content: center;
-  padding-top: 80px; /* atur posisi turun dikit */
+  padding-top: 180px; /* atur posisi turun dikit */
 
 }
 .hero h1, .hero h4, .hero p {
@@ -143,6 +143,8 @@ img {
   color: rgb(255, 255, 255);
   text-transform: uppercase;
 }
+
+
 
 /* RESPONSIVE */
 @media (max-width: 576px) {
@@ -552,12 +554,43 @@ width: 100%;
   font-weight: 600;
   display: block;
   margin-bottom: 8px;
+  line-height: 1.2;
+  white-space: nowrap; /* penting biar gak turun baris */
 }
 
 /* TANGGAL */
 .custom-card span:last-of-type {
-  font-size: 20px;
+ font-size: 20px;
   font-weight: 500;
+  line-height: 1.2;
+
+}
+
+.custom-card span {
+  display: block;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.custom-card {
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .custom-card span:first-of-type {
+    font-size: 18px;
+  }
+
+  .custom-card span:last-of-type {
+    font-size: 14px;
+  }
+
+  .info .card-header {
+    font-size: 16px;
+  }
 }
 
 /* HEADER */
@@ -899,6 +932,7 @@ body {
   align-items: center;
   padding: 0;
   overflow: hidden;
+  margin: 0;
 }
 
 /* GAMBAR TIDAK KE POTONG */
@@ -910,6 +944,13 @@ body {
   object-fit: contain !important; /* WAJIB ini */
   border-radius: 12px;
 }
+
+#modalImg {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
 
 /* tombol panah */
 .nav-btn {
@@ -1381,6 +1422,19 @@ h4 span {
 
 .gift-box p {
   margin: 6px 0;
+}
+
+#gifts {
+  padding-bottom: 100px;
+}
+
+section {
+  min-height: 100vh;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 
