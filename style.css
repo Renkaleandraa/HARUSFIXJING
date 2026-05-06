@@ -7,6 +7,9 @@
 body {
   font-size: 1.2rem;
   min-height: 4000px;
+    font-family: 'Didact Gothic', sans-serif;
+  letter-spacing: 0.5px;
+  color: white;
 }
 
 
@@ -23,12 +26,13 @@ img {
 
 .hero::before {
   content: '';
+  filter: grayscale(100%);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("images/hero1.jpg");
+  background-image: url("images/prewedbg.jpg");
    background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -42,6 +46,7 @@ img {
   z-index: -1;
   filter: grayscale();
 }
+
 .hero {
   position: relative;
   min-height: 90vh;
@@ -50,30 +55,25 @@ img {
   display: flex;
   align-items: flex-start; /* dari tengah ke atas */
   justify-content: center;
-  padding-top: 180px; /* atur posisi turun dikit */
+  padding-top: 140px; /* atur posisi turun dikit */
 
 }
 .hero h1, .hero h4, .hero p {
   text-shadow: var(--shadow);
 }
 
-.hero h1 {
-   font-family: 'Cinzel Decorative', serif !important;
-  letter-spacing: 2px;
-}
 
-.hero h4 span {
-  font-size: 2rem;
-  font-weight: bold;
-  display: block;
-  margin-top: 5px;
-}
 
+
+.hero-content {
+  position: relative;
+  top: -30px; /* naik ke atas */
+}
 
 
 .hero p {
-
-  font-weight: bold;
+   font-weight: 300;
+  font-size: 13px;
 }
 .hero a {
   text-decoration: none;
@@ -91,9 +91,11 @@ img {
 }
 
 .guest-name {
-  font-size: 1.3em;
+  font-size: 1.3rem;
   font-weight: 600;
 }
+
+
 
 @media (max-width: 768px) {
   .hero {
@@ -103,37 +105,53 @@ img {
   }
 
   .hero h1 {
-    font-size: 3.5rem;
+   font-size: 28px;
   }
 
   .hero h4 {
-    font-size: 4rem;
+    font-size: 2rem
   }
 
   .hero p {
-    font-size: 2.5rem;
-  }
+  font-size: 13px;
 }
+
+ 
+}
+
 
 
 .simply-countdown {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
   margin-top: 25px;
+  flex-wrap: wrap;
+
 }
 .simply-countdown .simply-section {
-  background: linear-gradient(145deg, #646262, #000000);
-  padding: 18px;
-  border-radius: 15px;
-  min-width: 80px;
+  background: linear-gradient(145deg, #000000, #565656);
+  padding: 8px 12px;
+  border-radius: 12px;
+  min-width: 70px;
   text-align: center;
 }
+
+.simply-countdown .simply-amount {
+  margin-right: 6px; /* jarak antara angka dan teks */
+}
+
+.simply-countdown .simply-word {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+
 .simply-countdown .simply-section {
-  box-shadow: 0 8px 20px rgba(136, 136, 133, 0.35);
+  box-shadow: 0 8px 20px rgba(79, 79, 79, 0.833);
 }
 .simply-countdown .simply-section span {
-  font-size: 28px;
+  font-size: 26px;  
   font-weight: bold;
   color: #ffffff;
 }
@@ -142,6 +160,31 @@ img {
   font-size: 13px;
   color: rgb(255, 255, 255);
   text-transform: uppercase;
+}
+
+.simply-countdown .simply-section:last-child {
+  display: none;
+}
+
+
+
+@media (max-width: 576px) {
+  .countdown {
+    gap: 10px;
+  }
+
+  .time-box {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .hero h2 {
+    font-size: 18px;
+  }
 }
 
 
@@ -550,7 +593,7 @@ width: 100%;
 
 /* JAM */
 .custom-card span:first-of-type {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 600;
   display: block;
   margin-bottom: 8px;
@@ -648,6 +691,10 @@ body {
   color: #000000;
   font-size: 1rem;
   font-weight: 300;
+}
+
+.gifts {
+  padding-bottom: 16rem; /* tadinya 8rem → ditambah biar aman */
 }
 
 .timeline { 
@@ -1127,7 +1174,7 @@ body.lock-scroll {
 
 .back-to-top {
   position: fixed;
-  bottom: 90px; 
+  bottom: 100px; 
   left: 50%;
   transform: translateX(-50%);
   
@@ -1200,57 +1247,7 @@ body.lock-scroll {
   z-index: 9999;
 }
 
-/* DOT */
-.slide-nav a {
-  display: block;
-  width: 10px;
-  height: 10px;
-  margin: 10px 0;
-  background: rgba(0,0,0,0.6); /* ga putih lagi */
-  border-radius: 50%;
-  transition: 0.3s;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
-}
 
-/* HOVER */
-.slide-nav a:hover {
-  background: #ffffff;
-  transform: scale(1.3);
-}
-
-/* ACTIVE */
-.slide-nav a.active {
-  background: #ff4d6d;
-  transform: scale(1.3);
-}
-
-.nav-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  
-  background: #fff;          /* isi putih */
-  border: 2px solid #333;    /* outline gelap */
-  
-  margin: 8px 0;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 5px rgba(0,0,0,0.4);
-}
-
-.nav-dot.active {
-  background: #ff0000;
-  border: 2px solid #fff;
-  transform: scale(1.2);
-}
-
-
-/* DOT AKTIF */
-.menu-opsi .active {
-  background-color: #ffffff !important;
-  transform: scale(1.3);
-  opacity: 1;
-}
 
 
 
