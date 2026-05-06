@@ -22,10 +22,16 @@ html {
 <script src="https://cdn.jsdelivr.net/npm/simplycountdown.js@1.7.0/dist/simplyCountdown.min.js"></script>
 
 
+<!-- FONT -->
 </head>
 <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Didact+Gothic&display=swap" rel="stylesheet">
+
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -73,6 +79,8 @@ html {
         <a href="#gallery">Gallery</a>
       </div>
     </div>
+
+  
   
 <main>
 <h4>Kepada<span class="guest-name">Bapak/Ibu/Saudara/i, </span></h4>
@@ -84,6 +92,7 @@ html {
 <p>Akan melangsungkan resepsi pernikahan dalam:</p>
 
 <div class="simply-countdown"></div>
+
 
 <a href="javascript:void(0)" onclick="bukaUndangan()" class="btn btn-light mt-4">
   Lihat Undangan
@@ -544,7 +553,7 @@ s.setAttribute('data-timestamp', +new Date());
 
 
 <div id="audio-container">
-  <audio id="song" loop preload="auto">
+  <audio id="song" loop preload="auto" playsinline>
     <source src="audio/theadamstimur.mp3" type="audio/mpeg">
   </audio>
 
@@ -555,13 +564,13 @@ s.setAttribute('data-timestamp', +new Date());
 
 <!-- BOX WAKTU -->
 <script>
+  
 simplyCountdown(".simply-countdown", {
 year: 2026,
 month: 6,
 day: 6,
-hours: 8,
-minutes: 0,
-seconds: 0
+
+ sections: ['days', 'hours', 'minutes'] // hapus seconds
 });
 </script>
 
@@ -670,42 +679,40 @@ function bukaUndangan() {
 
 <!-- AUDIO -->
 <script>
-  const audio = document.getElementById("song");
-  const icon = document.querySelector(".audio-icon-wrapper");
-
- window.addEventListener("load", function () {
+window.addEventListener("load", function () {
   const audio = document.getElementById("song");
   const iconWrapper = document.querySelector(".audio-icon-wrapper");
   const icon = iconWrapper.querySelector("i");
 
-  iconWrapper.addEventListener("click", function () {
+  // 🔥 autoplay setelah user klik pertama di mana saja
+  document.addEventListener("click", function () {
     if (audio.paused) {
-      // ▶️ PLAY
-      audio.play().catch(() => {});
-      iconWrapper.classList.add("rotate");
+      audio.play().then(() => {
+        iconWrapper.classList.add("rotate");
+        icon.classList.remove("bi-play-fill");
+        icon.classList.add("bi-disc");
+      }).catch(() => {});
+    }
+  }, { once: true });
 
-      icon.classList.remove("bi-play-fill");
-      icon.classList.add("bi-disc");
+  // 🎵 tombol play / pause manual
+  iconWrapper.addEventListener("click", function (e) {
+    e.stopPropagation(); // biar gak bentrok sama event atas
 
+    if (audio.paused) {
+      audio.play().then(() => {
+        iconWrapper.classList.add("rotate");
+        icon.classList.remove("bi-play-fill");
+        icon.classList.add("bi-disc");
+      }).catch(() => {});
     } else {
-      // ⏸ PAUSE
       audio.pause();
       iconWrapper.classList.remove("rotate");
-
       icon.classList.remove("bi-disc");
       icon.classList.add("bi-play-fill");
     }
   });
 });
-</script>
-
-<script>
-  document.addEventListener("click", function () {
-  const audio = document.getElementById("song");
-  if (audio && audio.paused) {
-    audio.play().catch(() => {});
-  }
-}, { once: true });
 </script>
 
 <!-- NAMA DI HEERO -->
