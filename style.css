@@ -968,9 +968,9 @@ color: var(--lilac);
 
 .timeline-item{
   position: relative;
+  width: 100%;
 
-  width: 50%;
-  padding: 0 50px 70px;
+  padding: 0 0 40px 110px;
 }
 
 
@@ -1033,6 +1033,16 @@ color: var(--lilac);
   line-height: 1.9;
   color: var(--gray-dark);
 }
+
+@media(max-width: 768px){
+
+  .timeline-item{
+    padding: 25px 20px 40px 200px;
+  }
+
+}
+
+
 
 
 /* =========================
@@ -1709,10 +1719,6 @@ linear-gradient(
     padding: 35px 25px;
   }
 
-  .timeline-item{
-    padding-left: 65px;
-  }
-
   .timeline-image{
     width: 95px;
     height: 95px;
@@ -2187,9 +2193,7 @@ section::before{
     font-size: 32px;
   }
 
-  .timeline-item{
-    padding-left: 55px;
-  }
+ 
 
   .timeline-image{
     width: 85px;
@@ -2623,9 +2627,8 @@ html, body{
 
 
   .timeline-item{
-    padding: 25px 20px;
+    padding: 25px 20px 40px 120px;
   }
-
 
   .gallery-grid{
     gap: 12px;
