@@ -48,17 +48,24 @@ body{
 }
 
 
+
 section{
   padding: 110px 0;
   position: relative;
+  overflow: hidden;
 }
 
 
 img{
   width: 100%;
+  height: auto;
   display: block;
 }
 
+.container{
+  width: 100%;
+  padding-inline: 20px;
+}
 
 a{
   text-decoration: none;
@@ -72,6 +79,17 @@ ul{
   list-style: none;
 }
 
+
+body.lock-scroll{
+  overflow: hidden;
+  height: 100vh;
+}
+
+html.lock-scroll,
+body.lock-scroll{
+  overflow: hidden !important;
+  touch-action: none;
+}
 
 .container{
   position: relative;
@@ -251,6 +269,11 @@ color: var(--lilac);
    LOADER LUXURY
 ========================= */
 
+.loader{
+  padding: 20px;
+  text-align: center;
+}
+
 .loader-wrapper{
   position: fixed;
   inset: 0;
@@ -281,6 +304,7 @@ color: var(--lilac);
 .loader-wrapper.hide{
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
 }
 
 .loader-content{
@@ -316,12 +340,19 @@ color: var(--lilac);
 }
 
 .loader-text{
-  font-size: 14px;
-  letter-spacing: 6px;
+  font-size: clamp(11px, 2.5vw, 14px);
+
+  letter-spacing: clamp(2px, 1vw, 6px);
 
   text-transform: uppercase;
 
   color: #9ca3af;
+
+  text-align: center;
+
+  padding: 0 15px;
+
+  line-height: 1.5;
 }
 
 @keyframes spin{
@@ -355,7 +386,7 @@ color: var(--lilac);
   rgba(186, 167, 255, 0.18),
   rgba(131, 94, 164, 0.4)
   ),
-  url('images/fix\ hero.jpg');
+  url('images/fixjing.jpg');
 
   background-size: cover;
   background-position: center center;
@@ -1415,37 +1446,97 @@ linear-gradient(
    MUSIC BUTTON
 ========================= */
 
-.music-button{
+.music-btn{
   position: fixed;
 
-  right: 25px;
-  bottom: 25px;
+  right: 20px;
+  bottom: 20px;
 
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 58px;
 
   border-radius: 50%;
-
- background: linear-gradient(
-    135deg,
-    var(--blue-pastel),
-    var(--lilac)
-  );
-  color: var(--white);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 24px;
+  background: rgba(255,255,255,0.15);
 
-  z-index: 999;
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  color: rgb(255, 255, 255);
+
+  font-size: 28px;
 
   cursor: pointer;
 
-  animation: rotateMusic 5s linear infinite;
+  z-index: 999999 !important;
+
+  opacity: 1 !important;
+
+  visibility: visible !important;
 }
 
+.music-btn{
+  position: fixed;
+
+  right: 20px;
+  bottom: 20px;
+
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(185,167,216,0.95),
+    rgba(159,183,217,0.95)
+  );
+
+  box-shadow:
+    0 0 15px rgba(185,167,216,0.5),
+    0 0 30px rgba(159,183,217,0.35);
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  backdrop-filter: blur(12px);
+
+  z-index: 999999;
+}
+
+.music-btn i{
+  color: white;
+  font-size: 24px;
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.6);
+}
+
+
+
+@keyframes gradientMove{
+
+  0%{
+    background-position: 0% 50%;
+  }
+
+  50%{
+    background-position: 100% 50%;
+  }
+
+  100%{
+    background-position: 0% 50%;
+  }
+
+}
 
 @keyframes rotateMusic{
   from{
@@ -1462,20 +1553,41 @@ linear-gradient(
    RESPONSIVE
 ========================= */
 
+@media(max-width:991px){
+
+  .custom-navbar{
+    padding: 10px 0;
+  }
 
   .navbar-collapse{
-    background: rgba(0,0,0,0.95);
+    background: rgba(0,0,0,0.88);
 
-    padding: 30px;
-    border-radius: 20px;
+    backdrop-filter: blur(14px);
 
-    margin-top: 20px;
+    padding: 18px 20px;
+
+    border-radius: 18px;
+
+    margin-top: 12px;
   }
 
   .navbar-nav{
-    gap: 18px;
-    margin-bottom: 25px;
+    gap: 8px;
+    margin-bottom: 15px;
   }
+
+  .nav-link{
+    padding: 8px 0;
+    font-size: 14px;
+  }
+
+  .desktop-button{
+    width: 100%;
+    padding: 12px;
+  }
+
+}
+
 
   .desktop-button{
     width: 100%;
@@ -2332,6 +2444,24 @@ background: var(--blue-pastel);
 }
 
 
+.watermark{
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.6);
+}
+
+.watermark a{
+  color: #d8c3ff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.watermark a:hover{
+  color: #ffffff;
+}
+
 /* MOBILE NAVBAR FIX */
 
 @media(max-width:991px){
@@ -2350,6 +2480,49 @@ background: var(--blue-pastel);
 
 }
 
+
+@media(max-width: 768px){
+
+  h1{
+    font-size: 42px !important;
+    line-height: 1.2;
+  }
+
+  h2{
+    font-size: 32px !important;
+  }
+
+  p{
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .hero{
+    min-height: 100vh;
+    padding: 120px 20px 80px;
+  }
+
+  .hero-content{
+    text-align: center;
+  }
+
+  .countdown{
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .gallery img{
+    border-radius: 18px;
+  }
+
+  .music-btn{
+    width: 52px;
+    height: 52px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+}
 
 /* MOBILE HERO FIX */
 
@@ -2374,30 +2547,104 @@ background: var(--blue-pastel);
 }
 
 
-/* VERY SMALL PHONE */
+/* =========================
+   FINAL MOBILE FIX
+========================= */
 
-@media(max-width:390px){
+html, body{
+  overflow-x: hidden;
+}
 
-  .hero-content h1{
-    font-size: 34px;
+
+@media(max-width: 768px){
+
+  section{
+    padding: 80px 0;
   }
+
+
+  .section-heading h2{
+    font-size: 38px;
+  }
+
+
+  .section-heading p{
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+
+  .hero-title{
+    font-size: 52px;
+    line-height: 1.1;
+  }
+
+
+  .guest-name{
+    font-size: 24px;
+  }
+
+
+  .hero-date{
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+
+
+  .hero-btn,
+  .hero-button{
+    width: 100%;
+    justify-content: center;
+  }
+
+
+  .countdown-wrapper{
+    gap: 10px;
+  }
+
 
   .countdown-box{
-    width: 64px;
-    height: 64px;
+    width: 78px;
+    height: 78px;
   }
+
 
   .countdown-box span{
-    font-size: 18px;
+    font-size: 24px;
   }
+
+
+  .couple-card,
+  .info-card,
+  .gift-card,
+  .rsvp-card{
+    padding: 28px 22px;
+  }
+
 
   .timeline-item{
-    padding-left: 48px;
+    padding: 25px 20px;
   }
 
-  .timeline-image{
-    width: 72px;
-    height: 72px;
+
+  .gallery-grid{
+    gap: 12px;
+  }
+
+
+  .footer-content{
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+
+  .music-button{
+    width: 55px;
+    height: 55px;
+
+    bottom: 20px;
+    right: 20px;
   }
 
 }
