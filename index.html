@@ -54,6 +54,7 @@ href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
 </head>
 <body>
 
+  
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
@@ -140,10 +141,11 @@ href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
       
 
     </div>
+    <a href="#couple" class="hero-btn" id="openInvitation">
+  Open Invitation
+</a>
 
-    <a href="#couple" class="hero-btn">
-      Open Invitation
-    </a>
+   
 
   </div>
 
@@ -174,10 +176,7 @@ href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
           <div class="couple-text">
             <h3>Noval Ardiansyah</h3>
 
-            <p>
-              Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri.
-            </p>
-
+      
             <div class="social-icons">
                           <a
 href="https://instagram.com/novaladh"
@@ -217,10 +216,7 @@ target="_blank">
           <div class="couple-text">
             <h3>Rahayu Rahmaningsih</h3>
 
-            <p>
-              Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri.
-            </p>
-
+            
             <div class="social-icons">
              <a
 href="https://instagram.com/rahayuraa"
@@ -344,7 +340,7 @@ Buka Google Maps
         <div class="info-card">
 
           <div class="info-icon">
-            <i class="bi bi-heart"></i>
+            <i class="bi bi-sunglasses"></i>
           </div>
 
           <h3>DRESSCODE</h3>
@@ -389,7 +385,7 @@ Buka Google Maps
 
       <div class="timeline-item">
         <div class="timeline-image">
-          <img src="images/com.jpg" alt="story">
+          <img src="images/satu.jpg" alt="story">
         </div>
 
         <h3>Commitment</h3>
@@ -435,28 +431,69 @@ Buka Google Maps
     <div class="gallery-grid mt-5">
 
       <a
-href="images/galleryy.jpg"
-class="gallery-item tall glightbox">
-
-  <img src="images/galleryy.jpg" alt="gallery">
-
-</a>
-
-<a
-href="images/galleryy.jpg"
-class="gallery-item tall glightbox">
-
-  <img src="images/galleryy.jpg" alt="gallery">
-
-</a>
-
-<a
-href="images/galleryy.jpg"
+href="images/galleryyyy.jpg"
 class="gallery-item tall glightbox">
 
   <img src="images/galleryyyy.jpg" alt="gallery">
 
-</a>
+  </a>
+
+      <a
+href="images/com.jpg"
+class="gallery-item tall glightbox">
+
+  <img src="images/com.jpg" alt="gallery">
+
+  </a>
+
+      <a
+href="images/galleryy.jpg"
+class="gallery-item tall glightbox">
+
+  <img src="images/galleryy.jpg" alt="gallery">
+
+  </a>
+
+      <a
+href="images/laut.jpg"
+class="gallery-item tall glightbox">
+
+  <img src="images/laut.jpg" alt="gallery">
+
+  </a>
+
+      <a
+href="images/storyy.jpg"
+class="gallery-item tall glightbox">
+
+  <img src="images/storyy.jpg" alt="gallery">
+
+  </a>
+
+      <a
+href="images/empat.jpg"
+class="gallery-item tall glightbox">
+
+  <img src="images/empat.jpg" alt="gallery">
+
+  </a>
+
+      <a
+href="images/storyyy.jpg"
+class="gallery-item tall glightbox">
+
+  <img src="images/storyyy.jpg" alt="gallery">
+
+  </a>
+
+      <a
+href="images/tiga.jpg"
+class="gallery-item tall glightbox">
+
+  <img src="images/tiga.jpg" alt="gallery">
+
+  </a>
+
 
      
       
@@ -552,7 +589,7 @@ class="gallery-item tall glightbox">
         <div class="gift-card">
 
           <div class="gift-icon">
-            <i class="bi bi-wallet2"></i>
+            <i class="bi bi-house-door"></i>
           </div>
 
           <h3>SENDING GIFT TO</h3>
@@ -695,7 +732,7 @@ Lihat Daftar
 
   <!-- Instagram -->
   <a
-  href="https://instagram.com/asyiifaaftrh"
+  href="https://instagram.com/asyifaaftrh"
   target="_blank">
 
     <i class="bi bi-instagram"></i>
@@ -728,9 +765,12 @@ Lihat Daftar
     © 2026 Rahayu & Noval Wedding
   </p>
 
-  <small>
-    Crafted with love by R&N
-  </small>
+  <div class="watermark">
+  Created with 🤍 by 
+  <a href="https://instagram.com/asyifaaftrh_project " target="_blank">
+    @asyifaaftrh
+  </a>
+</div>
 
 </div>
 
@@ -746,8 +786,8 @@ Lihat Daftar
 </audio>
 
 <!-- Music Button -->
-<div class="music-button">
-  <i class="bi bi-play-fill"></i>
+<div class="music-btn" id="musicBtn">
+  <i class="bi bi-play-circle-fill"></i>
 </div>
 
 
@@ -815,48 +855,77 @@ if(distance < 0){
 ========================= */
 
 const audio = document.getElementById("weddingMusic");
-const button = document.querySelector(".music-button");
-const icon = document.querySelector(".music-button i");
 
-let isPlaying = false;
+const button = document.querySelector(".music-btn");
+
+const icon = document.querySelector(".music-btn i");
+
+const openBtn = document.getElementById("openInvitation");
 
 audio.volume = 0.5;
 
-/* start pertama kali (mobile requirement) */
-window.addEventListener("click", () => {
-  audio.play().then(() => {
-    isPlaying = true;
-      icon.classList.remove("bi-pause-fill");
-    icon.classList.add("bi-play-fill");
-    button.style.animation = "rotateMusic 5s linear infinite";
-  }).catch(() => {});
-}, { once: true });
+let isPlaying = false;
 
-button.addEventListener("click", (e) => {
-  e.stopPropagation();
 
-  if (audio.paused) {
-    // ▶ RESUME / PLAY
-    audio.play();
+/* =========================
+   OPEN INVITATION
+========================= */
 
-    isPlaying = true;
+openBtn.addEventListener("click", () => {
 
-    icon.classList.remove("bi-play-fill");
-    icon.classList.add("bi-disc");
+  document.body.classList.remove("lock-scroll");
 
-    button.style.animation = "rotateMusic 5s linear infinite";
+  audio.play();
 
-  } else {
-    // ⏸ PAUSE
+  isPlaying = true;
+
+  icon.classList.remove("bi-play-circle-fill");
+
+  icon.classList.add("bi-disc-fill");
+
+  button.style.animation =
+  "rotateMusic 5s linear infinite";
+
+});
+
+
+
+
+/* =========================
+   MUSIC BUTTON CLICK
+========================= */
+
+button.addEventListener("click", () => {
+
+  if(isPlaying){
+
+    // PAUSE
     audio.pause();
 
     isPlaying = false;
 
-    icon.classList.remove("bi-pause-fill");
-    icon.classList.add("bi-play-fill");
+    icon.classList.remove("bi-disc-fill");
+
+    icon.classList.add("bi-play-circle-fill");
 
     button.style.animation = "none";
+
+  } else {
+
+    // PLAY
+    audio.play();
+
+    isPlaying = true;
+
+    icon.classList.remove("bi-play-circle-fill");
+
+    icon.classList.add("bi-disc-fill");
+
+    button.style.animation =
+    "rotateMusic 5s linear infinite";
+
   }
+
 });
 
 
@@ -933,6 +1002,7 @@ function copyText(text){
   alert("Nomor berhasil disalin!");
 }
 </script>
+
 
 
 <script>
@@ -1030,6 +1100,8 @@ window.onbeforeunload = function () {
 
 </script>
 
+
+
 <script>
 (function () {
 
@@ -1045,6 +1117,15 @@ window.onbeforeunload = function () {
 })();
 </script>
 
+<script>
+
+window.addEventListener("load", () => {
+
+  document.body.classList.add("lock-scroll");
+
+});
+
+</script>
 
 
 </body>
