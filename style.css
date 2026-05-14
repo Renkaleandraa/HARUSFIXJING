@@ -796,6 +796,43 @@ section{
   border:none;
 }
 
+/* =========================
+   INFO RESPONSIVE
+========================= */
+
+.info-wrapper{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+  align-items:start;
+}
+
+
+/* CARD */
+.info-card{
+  height:auto;
+}
+
+
+/* LAPTOP */
+@media(max-width:1200px){
+
+  .info-card h3{
+    font-size:36px;
+  }
+
+}
+
+
+/* TABLET */
+@media(max-width:991px){
+
+  .info-wrapper{
+    grid-template-columns:1fr;
+  }
+
+}
+
 
 /* =========================
    DRESSCODE
@@ -1454,6 +1491,9 @@ section{
 }
 
 .section-title h2{
+  font-family: 'Whishes', serif !important;
+  font-size: 42px;
+  
   text-align: center;
 }
 
@@ -1476,6 +1516,7 @@ section{
 
   border: 1px solid #ececec;
 }
+
 
 
 /* =========================
