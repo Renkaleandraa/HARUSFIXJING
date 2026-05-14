@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -196,13 +196,13 @@ target="_blank">
       </div>
 
 
-      <!-- TENGAH -->
+  <!-- TENGAH -->
       <div class="col-lg-2 text-center">
         <div class="center-love">
           <i class="bi bi-heart-fill"></i>
         </div>
       </div>
-
+      
 
       <!-- WANITA -->
       <div class="col-lg-5">
@@ -1079,7 +1079,6 @@ window.addEventListener('load', () => {
 
 </script>
 
-
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
@@ -1129,16 +1128,41 @@ window.onbeforeunload = function () {
 
 
 <script>
+function unlockScroll(){
+  document.body.classList.remove("lock-scroll");
+  document.documentElement.classList.remove("lock-scroll");
 
-window.addEventListener("load", () => {
+  document.body.style.overflow = "auto";
+  document.documentElement.style.overflow = "auto";
+}
 
-  document.body.classList.add("lock-scroll");
-
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", () => {
+    unlockScroll();
+  });
 });
 
+window.addEventListener("load", () => {
+  document.body.classList.add("lock-scroll");
+  document.documentElement.classList.add("lock-scroll");
+});
 </script>
 
+<script>
+
+
+openBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  document.body.classList.remove("lock-scroll");
+  document.documentElement.classList.remove("lock-scroll");
+
+  document.querySelector("#couple").scrollIntoView({
+    behavior: "smooth"
+  });
+});
+</script>
 
 </body>
 </html>
-```
+
