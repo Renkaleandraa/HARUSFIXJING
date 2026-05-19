@@ -156,7 +156,6 @@ section{
    MOBILE
 ========================= */
 
-
 @media(max-width:768px){
 
   section{
@@ -188,12 +187,10 @@ section{
 @media(max-width:768px){
 
   .hero h1{
-    margin-left:-15px;
+    transform: translateX(-12px);
   }
 
 }
-
-
 /* =========================
    HERO
 ========================= */
@@ -225,8 +222,6 @@ section{
   background-position:center;
   background-repeat:no-repeat;
 }
-
-
 
 
 /* OVERLAY */
@@ -288,6 +283,7 @@ section{
 
   opacity:.9;
 }
+
 
 
 /* GUEST */
@@ -1587,42 +1583,7 @@ section{
 
 }
 
-/* =========================
-   DISQUS SECTION
-========================= */
 
-
-.section-title{
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.section-title h2{
-  font-family: 'Whishes', serif !important;
-  font-size: 42px;
-  
-  text-align: center;
-}
-
-.section-title p{
-  text-align: center;
-  margin: auto;
-}
-
-.disqus-section{
-  background: #f6f6f6;
-  padding: 100px 0;
-}
-
-.disqus-box{
-  background: #ffffff;
-
-  border-radius: 28px;
-
-  padding: 40px 30px;
-
-  border: 1px solid #ececec;
-}
 
 
 
@@ -1889,8 +1850,7 @@ section{
 
 .info-card,
 .gift-card,
-.rsvp-card,
-.disqus-box{
+.rsvp-card{
 
   background: transparent !important;
 
@@ -1905,7 +1865,6 @@ section{
 /* SECTION BACKGROUND */
 .info-section,
 .rsvp-section,
-.disqus-section,
 .story-section,
 .gallery-section,
 .gift-section,
@@ -1932,6 +1891,138 @@ section{
   border: 1px solid rgba(0,0,0,.08);
 }
 
+
+/* =========================
+   WISHES SECTION (FIX LUXURY UI)
+========================= */
+
+.wishes-section{
+  background: var(--light);
+  padding: 100px 0;
+}
+
+.wish-form{
+  max-width: 700px;
+  margin: 40px auto 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.wish-form input,
+.wish-form textarea{
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.7);
+  font-family: var(--main-font);
+  font-size: 14px;
+  outline: none;
+  transition: .3s ease;
+}
+
+.wish-form input:focus,
+.wish-form textarea:focus{
+  border-color: var(--main);
+  box-shadow: 0 0 0 3px rgba(138,106,85,.12);
+}
+
+.wish-form textarea{
+  min-height: 120px;
+  resize: none;
+}
+
+/* BUTTON */
+#wishForm button,
+#sendWish{
+  background: var(--main);
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+#sendWish:hover{
+  opacity: .85;
+  transform: translateY(-2px);
+}
+
+/* COUNTER */
+#wishCount{
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--gray);
+}
+
+/* =========================
+   WISH LIST (CARD CLEAN)
+========================= */
+
+#wishList{
+  max-width: 800px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ITEM */
+.wish-item{
+  background: rgba(255,255,255,.6);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 18px;
+  padding: 18px 20px;
+  backdrop-filter: blur(8px);
+  transition: .3s ease;
+}
+
+.wish-item:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.05);
+}
+
+/* NAME */
+.wish-item h4{
+  font-family: var(--title-font);
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: var(--black);
+}
+
+/* MESSAGE */
+.wish-item p{
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--dark);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .wish-form{
+    padding: 0 20px;
+  }
+
+  .wish-item{
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .wish-item h4{
+    font-size: 16px;
+  }
+}
+
 /* =========================
    RESPONSIVE
 ========================= */
@@ -1947,6 +2038,139 @@ section{
     height: 54px;
   }
 
+}
+
+[data-aos] {
+  pointer-events: none;
+}
+
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+.center-love {
+  position: relative;
+  top: -25px;
+}
+
+
+/*tamabahan couple */
+.parents-text {
+  font-size: 13px;
+  color: #7a7a7a;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+.couple-card {
+  transition: all 0.4s ease;
+}
+
+.couple-card:hover {
+  transform: translateY(-6px);
+}
+
+.center-love {
+  font-size: 28px;
+  color: #c9a47e;
+  animation: pulseHeart 2s infinite;
+}
+
+@keyframes pulseHeart {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+#wishList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+/* Scrollbar halus */
+#wishList::-webkit-scrollbar {
+  width: 4px;
+}
+
+#wishList::-webkit-scrollbar-thumb {
+  background: #c9a47e;
+  border-radius: 10px;
+}
+
+/* Bubble chat */
+.chat-bubble {
+  max-width: 80%;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: #f7f3ef;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  position: relative;
+  animation: fadeChat 0.4s ease;
+}
+
+/* Nama pengirim */
+.chat-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #a07c5b;
+  margin-bottom: 4px;
+}
+
+/* Pesan */
+.chat-message {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Animasi masuk */
+@keyframes fadeChat {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-bubble.left {
+  align-self: flex-start;
+  border-top-left-radius: 5px;
+}
+
+.chat-bubble.right {
+  align-self: flex-end;
+  background: #e9dfd7;
+  border-top-right-radius: 5px;
+  text-align: right;
+}
+
+.copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(20, 20, 20, 0.85);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
+}
+
+.copy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* =========================
@@ -2063,35 +2287,32 @@ body.lock-scroll {
 }
 
 
-/* ===== CLEAN DISQUS ADS ===== */
+#adminBtn{
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 999999;
 
-#disqus_recommendations,
-#discovery-base,
-#discovery-top,
-#discovery-bottom,
-#discovery-main,
+  padding: 10px 14px;
 
-.discovery-posts,
-.promoted-disqus,
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
 
-[class*="recommend"],
-[class*="discovery"],
+  background: rgba(138,106,85,.9);
+  color: #fff;
 
-iframe[src*="disqusads"],
-iframe[src*="zeta"],
-iframe[src*="recommend"],
-iframe[src*="taboola"],
-iframe[src*="outbrain"]{
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 999px;
 
-  display:none !important;
-  visibility:hidden !important;
-  opacity:0 !important;
+  cursor: pointer;
 
-  height:0 !important;
-  min-height:0 !important;
+  backdrop-filter: blur(8px);
 
-  overflow:hidden !important;
+  transition: 0.3s ease;
+}
 
-  margin:0 !important;
-  padding:0 !important;
+#adminBtn:hover{
+  transform: translateY(-2px);
+  background: #8a6a55;
 }
