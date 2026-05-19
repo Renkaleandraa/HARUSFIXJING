@@ -2298,36 +2298,6 @@ body.lock-scroll {
 }
 
 
-#adminBtn{
-  position: fixed;
-  top: 14px;
-  right: 14px;
-  z-index: 999999;
-
-  padding: 10px 14px;
-
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1px;
-
-  background: rgba(138,106,85,.9);
-  color: #fff;
-
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 999px;
-
-  cursor: pointer;
-
-  backdrop-filter: blur(8px);
-
-  transition: 0.3s ease;
-}
-
-#adminBtn:hover{
-  transform: translateY(-2px);
-  background: #8a6a55;
-}
-
 .chat-bubble.left{
   margin-right:auto;
 }
