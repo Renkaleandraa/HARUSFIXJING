@@ -184,13 +184,6 @@ section{
 
 }
 
-@media(max-width:768px){
-
-  .hero h1{
-    transform: translateX(-12px);
-  }
-
-}
 
 /* =========================
    HERO
@@ -224,9 +217,7 @@ section{
   background-repeat:no-repeat;
 }
 
-.hero h1{
-  transform: translateX(-10px);
-}
+
 
 
 /* OVERLAY */
