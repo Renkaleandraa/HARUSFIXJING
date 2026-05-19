@@ -184,6 +184,14 @@ section{
 
 }
 
+@media(max-width:768px){
+
+  .hero h1{
+    transform: translateX(-12px);
+  }
+
+}
+
 /* =========================
    HERO
 ========================= */
@@ -214,6 +222,13 @@ section{
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
+}
+
+.hero h1{
+  font-family:'Cormorant Garamond', serif;
+  font-size:58px;
+  color:#fff;
+  transform: translateX(-10px);
 }
 
 
