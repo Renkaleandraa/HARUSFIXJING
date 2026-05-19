@@ -2051,15 +2051,35 @@ body.lock-scroll {
 }
 
 
-/* =========================
-   HIDE DISQUS ADS
-========================= */
+/* ===== CLEAN DISQUS ADS ===== */
 
 #disqus_recommendations,
+#discovery-base,
+#discovery-top,
+#discovery-bottom,
+#discovery-main,
+
 .discovery-posts,
 .promoted-disqus,
+
+[class*="recommend"],
+[class*="discovery"],
+
 iframe[src*="disqusads"],
 iframe[src*="zeta"],
-iframe[src*="recommend"]{
+iframe[src*="recommend"],
+iframe[src*="taboola"],
+iframe[src*="outbrain"]{
+
   display:none !important;
+  visibility:hidden !important;
+  opacity:0 !important;
+
+  height:0 !important;
+  min-height:0 !important;
+
+  overflow:hidden !important;
+
+  margin:0 !important;
+  padding:0 !important;
 }
