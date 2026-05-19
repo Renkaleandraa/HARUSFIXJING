@@ -687,7 +687,7 @@ class="gallery-item tall glightbox">
 </section>
 
 
-<section id="wishes" class="wishes-section" data-aos="fade-up"></section>
+<section id="wishes" class="wishes-section" data-aos="fade-up">
 
   <div class="container">
 
@@ -1158,18 +1158,25 @@ window.addEventListener("load", () => {
 });
 </script>
 
+
 <script>
+document.addEventListener("DOMContentLoaded", () => {
 
+  const openBtn = document.getElementById("openInvitation");
 
-openBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+  if (!openBtn) return;
 
-  document.body.classList.remove("lock-scroll");
-  document.documentElement.classList.remove("lock-scroll");
+  openBtn.addEventListener("click", (e) => {
+    e.preventDefault();
 
-  document.querySelector("#couple").scrollIntoView({
-    behavior: "smooth"
+    document.body.classList.remove("lock-scroll");
+    document.documentElement.classList.remove("lock-scroll");
+
+    document.querySelector("#couple")?.scrollIntoView({
+      behavior: "smooth"
+    });
   });
+
 });
 </script>
 
@@ -1209,11 +1216,19 @@ sendBtn.addEventListener("click", async () => {
     return;
   }
 
-  await db.collection("guestbook").add({
-    name,
-    message,
-    time: new Date()
-  });
+ let senderId = localStorage.getItem("senderId");
+
+if(!senderId){
+  senderId = crypto.randomUUID();
+  localStorage.setItem("senderId", senderId);
+}
+
+await db.collection("guestbook").add({
+  name,
+  message,
+  senderId,
+  time: firebase.firestore.FieldValue.serverTimestamp()
+});
 
   nameInput.value = "";
   messageInput.value = "";
@@ -1233,7 +1248,12 @@ db.collection("guestbook")
       const data = doc.data();
       count++;
 
-      const alignClass = index % 2 === 0 ? "left" : "right";
+      const mySenderId = localStorage.getItem("senderId");
+
+const alignClass =
+data.senderId === mySenderId
+? "left"
+: "right";
 
       wishList.innerHTML += `
         <div class="chat-bubble ${alignClass}">
