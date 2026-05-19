@@ -1164,6 +1164,25 @@ openBtn.addEventListener("click", (e) => {
 });
 </script>
 
+<script>
+function cleanDisqusAds() {
+
+  const targets = document.querySelectorAll(
+    '#discovery-base, #discovery-top, #discovery-bottom,' +
+    '#discovery-main, #disqus_recommendations,' +
+    '[class*="recommend"], [class*="discovery"]'
+  );
+
+  targets.forEach(el => {
+    el.remove();
+  });
+}
+
+setInterval(cleanDisqusAds, 500);
+
+window.addEventListener('load', cleanDisqusAds);
+</script>
+
 </body>
 </html>
 
