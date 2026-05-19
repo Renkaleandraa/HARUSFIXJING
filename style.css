@@ -2316,3 +2316,11 @@ body.lock-scroll {
   transform: translateY(-2px);
   background: #8a6a55;
 }
+
+.chat-bubble.left{
+  margin-right:auto;
+}
+
+.chat-bubble.right{
+  margin-left:auto;
+}
