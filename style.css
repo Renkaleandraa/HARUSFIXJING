@@ -1896,10 +1896,19 @@ section{
    WISHES SECTION (FIX LUXURY UI)
 ========================= */
 
-.wishes-section{
-  background: var(--light);
-  padding: 100px 0;
+.wishes-section .section-heading p:last-of-type{
+  text-transform: none !important;
+  letter-spacing: normal !important;
+
+  color: #7b6f68 !important;
+
+  font-size: 15px;
+  line-height: 1.8;
+
+  opacity: 1 !important;
 }
+
+
 
 .wish-form{
   max-width: 700px;
@@ -1931,6 +1940,8 @@ section{
 .wish-form textarea{
   min-height: 120px;
   resize: none;
+
+
 }
 
 /* BUTTON */
