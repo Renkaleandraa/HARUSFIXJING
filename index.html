@@ -59,17 +59,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
+ <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
-  <meta http-equiv="Content-Security-Policy"
-content="
-default-src 'self';
-img-src 'self' data: https:;
-style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com;
-font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
-script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://novalrahayu.disqus.com;
-frame-src https://www.google.com https://disqus.com https://*.disqus.com;
-connect-src 'self' https://disqus.com https://*.disqus.com;
-">
+ 
 
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
@@ -78,9 +72,13 @@ connect-src 'self' https://disqus.com https://*.disqus.com;
 </head>
 <body>
 
-  
+ 
+
 
 <!-- NAVBAR -->
+<button id="adminBtn" onclick="adminLogin()">
+  Admin
+</button>
 <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
   <div class="container">
 
@@ -176,48 +174,44 @@ connect-src 'self' https://disqus.com https://*.disqus.com;
 
 
 <!-- COUPLE -->
-<section id="couple" class="couple-section">
+<section id="couple" class="couple-section" data-aos="fade-up">
   <div class="container">
 
-    <div class="section-heading text-center">
+    <!-- HEADER -->
+    <div class="section-heading text-center" data-aos="fade-down">
 
       <p class="arabic-bismillah">
         ﷽
       </p>
 
       <div class="divider-icon">
-  <span></span>
-  <i class="fa-solid fa-seedling"></i>
-  <span></span>
-</div>
-
+        <span></span>
+        <i class="fa-solid fa-seedling"></i>
+        <span></span>
+      </div>
 
       <h4 class="arabic-title">
         هُوَ الَّذِي خَلَقَكُم مِّن نَّفْسٍ وَاحِدَةٍ
-        وَجَعَلَ مِنْهَا زَوْجَهَا لِيَسْكُنَ إِلَيْهَا 
+        وَجَعَلَ مِنْهَا زَوْجَهَا لِيَسْكُنَ إِلَيْهَا
       </h4>
 
       <h3 class="verse-translation">
-        “He created you from a single soul, and from it He created its mate
-        so that he might find tranquility in her.”
+        “He created you from a single soul, and from it He created its mate so that he might find tranquility in her.”
       </h3>
 
       <span class="verse-source">
         QS. Al-A’raf : 189
       </span>
+
       <h1>YOU ARE INVITED TO OUR WEDDING</h1>
 
     </div>
 
-
-      
-    </div>
-
-
+    <!-- COUPLE ROW -->
     <div class="row align-items-center g-5 mt-4">
 
       <!-- PRIA -->
-      <div class="col-lg-5">
+      <div class="col-lg-5" data-aos="fade-right" data-aos-duration="1200">
 
         <div class="couple-card">
 
@@ -226,38 +220,35 @@ connect-src 'self' https://disqus.com https://*.disqus.com;
           </div>
 
           <div class="couple-text">
+
             <h3>Noval Ardiansyah</h3>
 
-      
+            <p class="parents-text">
+              Putra Pertama dari Alm. Bapak Marwan & Ibu Herni Sri Supianti
+            </p>
+
             <div class="social-icons">
-                          <a
-href="https://instagram.com/novaladh"
-target="_blank">
-
-<i class="bi bi-instagram"></i>
-
-</a>
-              
-             
+              <a href="https://instagram.com/novaladh" target="_blank">
+                <i class="bi bi-instagram"></i>
+              </a>
             </div>
 
           </div>
 
         </div>
-
       </div>
 
+      <!-- HEART -->
+      <div class="col-lg-2 text-center" data-aos="zoom-in" data-aos-delay="200">
 
-  <!-- TENGAH -->
-      <div class="col-lg-2 text-center">
         <div class="center-love">
           <i class="bi bi-heart-fill"></i>
         </div>
+
       </div>
-      
 
       <!-- WANITA -->
-      <div class="col-lg-5">
+      <div class="col-lg-5" data-aos="fade-left" data-aos-duration="1200">
 
         <div class="couple-card reverse">
 
@@ -266,24 +257,22 @@ target="_blank">
           </div>
 
           <div class="couple-text">
+
             <h3>Rahayu Rahmaningsih</h3>
 
-            
+            <p class="parents-text">
+              Putri Kedua dari Alm. Bapak Maryadi & Ibu Hj. Sumarni
+            </p>
+
             <div class="social-icons">
-             <a
-href="https://instagram.com/rahayuraa"
-target="_blank">
-
-<i class="bi bi-instagram"></i>
-
-</a>
-              
+              <a href="https://instagram.com/rahayuraa" target="_blank">
+                <i class="bi bi-instagram"></i>
+              </a>
             </div>
 
           </div>
 
         </div>
-
       </div>
 
     </div>
@@ -293,7 +282,7 @@ target="_blank">
 
 
 <!-- INFO -->
-<section id="info" class="info-section">
+<section id="info" class="info-section" data-aos="fade-up">
   <div class="container">
 
     <div class="section-heading text-center">
@@ -304,7 +293,7 @@ target="_blank">
 
       <!-- AKAD -->
       <div class="col-lg-4 col-md-6">
-        <div class="info-card">
+        <div class="info-card" data-aos="fade-right">
 
           <div class="info-icon">
             <i class="bi bi-heart"></i>
@@ -322,7 +311,7 @@ target="_blank">
 
       <!-- RESEPSI -->
       <div class="col-lg-4 col-md-6">
-        <div class="info-card">
+        <div class="info-card" data-aos="fade-left">
 
           <div class="info-icon">
             <i class="bi bi-people"></i>
@@ -342,7 +331,7 @@ target="_blank">
 
        <!-- LOKASI -->
       <div class="col-lg-4 col-md-6">
-        <div class="info-card">
+        <div class="info-card" data-aos="zoom-in">
 
           <div class="info-icon">
             <i class="bi bi-geo-alt"></i>
@@ -388,7 +377,7 @@ target="_blank">
 
       <!-- DRESSCODE -->
       <div class="col-lg-4 col-md-6">
-  <div class="info-card dresscode-card">
+  <div class="info-card dresscode-card" data-aos="fade-up" data-aos-delay="200">
 
     <div class="info-icon">
       <i class="bi bi-sunglasses"></i>
@@ -435,7 +424,7 @@ target="_blank">
 
     <div class="timeline mt-5">
 
-      <div class="timeline-item" data-aos="fade-right">
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
         <div class="timeline-image">
           <img src="images/firstmeet.jpg" alt="story">
         </div>
@@ -449,7 +438,7 @@ target="_blank">
       </div>
 
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
         <div class="timeline-image">
           <img src="images/satu.jpg" alt="story">
         </div>
@@ -464,7 +453,7 @@ target="_blank">
       </div>
 
 
-      <div class="timeline-item">
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
         <div class="timeline-image">
           <img src="images/long1.jpg" alt="story">
         </div>
@@ -575,12 +564,11 @@ class="gallery-item tall glightbox">
       <h2>Send Your Love</h2>
     </div>
 
-    <div class="row g-4 justify-content-center">
+    <div class="row g-4 justify-content-center text-center">
 
       <!-- BANK -->
-      <div class="col-lg-5">
-
-        <div class="gift-card">
+      <div class="col-lg-5 d-flex justify-content-center">
+        <div class="gift-card text-center">
 
           <div class="gift-icon">
             <i class="bi bi-bank"></i>
@@ -590,27 +578,20 @@ class="gallery-item tall glightbox">
 
           <p class="gift-number">
             3452691172
-          
           </p>
 
           <small>A.N NOVAL ARDIANSYAH</small>
 
-          <button class="copy-button"
-            onclick="copyText('3452691172')">
-
+          <button class="copy-button" onclick="copyText('3452691172')">
             Salin Nomor
-
           </button>
 
         </div>
-
       </div>
 
-
       <!-- E-WALLET -->
-      <div class="col-lg-5">
-
-        <div class="gift-card">
+      <div class="col-lg-5 d-flex justify-content-center">
+        <div class="gift-card text-center">
 
           <div class="gift-icon">
             <i class="bi bi-wallet2"></i>
@@ -624,21 +605,16 @@ class="gallery-item tall glightbox">
 
           <small>A.N RAHAYU RAHMANINGSIH</small>
 
-          <button class="copy-button"
-            onclick="copyText('1010013860752')">
-
+          <button class="copy-button" onclick="copyText('1010013860752')">
             Salin Nomor
-
           </button>
 
         </div>
-
       </div>
 
-      <!-- Alamat  -->
-      <div class="col-lg-5">
-
-        <div class="gift-card">
+      <!-- ALAMAT -->
+      <div class="col-lg-10 d-flex justify-content-center">
+        <div class="gift-card text-center">
 
           <div class="gift-icon">
             <i class="bi bi-house-door"></i>
@@ -653,20 +629,16 @@ class="gallery-item tall glightbox">
           <small>A.N RAHAYU RAHMANINGSIH</small>
 
           <button class="copy-button"
-            onclick="copyText(' pondok maharta blok H 15 No. 5 RT 012 RW 009 Pondok Kacang Timur Pondok Aren Tangerang Selatan')">
-
+            onclick="copyText('pondok maharta blok H 15 No. 5 RT 012 RW 009 Pondok Kacang Timur Pondok Aren Tangerang Selatan')">
             Salin Alamat
-
           </button>
 
         </div>
-
       </div>
 
     </div>
 
   </div>
-
 </section>
 
 
@@ -682,6 +654,9 @@ class="gallery-item tall glightbox">
     <div class="row g-4 mt-4 justify-content-center">
 
       <!-- CARD 1 -->
+       <div class="rsvp-card" data-aos="zoom-in">
+
+      
       <div class="col-lg-5 col-md-6">
         <div class="rsvp-card text-center">
 
@@ -702,6 +677,7 @@ class="gallery-item tall glightbox">
 
         </div>
       </div>
+       </div>
 
     
 
@@ -711,27 +687,50 @@ class="gallery-item tall glightbox">
 </section>
 
 
-<!-- DISQUS SECTION START -->
-<section id="wishes" class="disqus-section">
-  <div class="disqus-bg"></div>
+<section id="wishes" class="wishes-section" data-aos="fade-up"></section>
 
   <div class="container">
-    
-    <div class="section-title">
-      <span class="subtitle">Wedding Wishes</span>
+
+    <div class="section-heading text-center">
+
+      <p>Wedding Wishes</p>
+
       <h2>Kata & Restu</h2>
-      <p>
-        Berikan doa dan ucapan terbaik untuk kami dengan menambahkan #NOVALwayswithAYU
-      </p>
+
+      <p> Berikan doa dan ucapan terbaik untuk kami
+         dengan menambahkan #NOVALwayswithAYU</p>
+
+      <span id="wishCount">0 Ucapan</span>
+
     </div>
 
-    <div class="disqus-box">
-      <div id="disqus_thread"></div>
+    <div class="wish-form">
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Nama Anda"
+      >
+
+      <textarea
+        id="message"
+        placeholder="Tulis ucapan & doa..."
+      ></textarea>
+
+      <button id="sendWish">
+        Kirim Ucapan
+      </button>
+
     </div>
+
+    <div id="wishList"></div>
 
   </div>
+
 </section>
-<!-- DISQUS SECTION END -->
+
+
+
 
 
 <!-- FOOTER -->
@@ -1002,26 +1001,36 @@ hiddenElements.forEach((el) => {
 
 
 
-<script>
-  
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://novalrahayu.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<script id="dsq-count-scr" src="//novalrahayu.disqus.com/count.js" async></script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 
 
 
 <script>
-function copyText(text){
+function copyText(text) {
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      showToast("Tersalin ke clipboard ✨");
+    })
+    .catch(() => {
+      showToast("Gagal menyalin, coba manual");
+    });
+}
 
-  navigator.clipboard.writeText(text);
+function showToast(message) {
+  const toast = document.createElement("div");
+  toast.className = "copy-toast";
+  toast.innerText = message;
 
-  alert("Nomor berhasil disalin!");
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add("show");
+  }, 10);
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 300);
+  }, 2000);
 }
 </script>
 
@@ -1112,7 +1121,7 @@ const lightbox = GLightbox({
 AOS.init({
   duration: 1400,
   once: true,
-  offset: 80,
+  offset: 120,
 });
 </script>
 
@@ -1164,23 +1173,132 @@ openBtn.addEventListener("click", (e) => {
 });
 </script>
 
+
 <script>
-function cleanDisqusAds() {
+const firebaseConfig = {
+  apiKey: "AIzaSyBlnmi4HR9rryJOq3y09osclPiea7RZvXA",
+  authDomain: "rahayu-noval.firebaseapp.com",
+  projectId: "rahayu-noval",
+  storageBucket: "rahayu-noval.appspot.com",
+  messagingSenderId: "917823865851",
+  appId: "1:917823865851:web:f7db7c656599b74e74c15e",
+  measurementId: "G-PDYBTEE6H0"
+};
 
-  const targets = document.querySelectorAll(
-    '#discovery-base, #discovery-top, #discovery-bottom,' +
-    '#discovery-main, #disqus_recommendations,' +
-    '[class*="recommend"], [class*="discovery"]'
-  );
+// INIT FIREBASE
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const auth = firebase.auth();
 
-  targets.forEach(el => {
-    el.remove();
+let isAdmin = false;
+
+// ELEMENT
+const nameInput = document.getElementById("name");
+const messageInput = document.getElementById("message");
+const sendBtn = document.getElementById("sendWish");
+const wishList = document.getElementById("wishList");
+const wishCount = document.getElementById("wishCount");
+
+// SEND WISH
+sendBtn.addEventListener("click", async () => {
+  const name = nameInput.value.trim();
+  const message = messageInput.value.trim();
+
+  if (!name || !message) {
+    alert("Nama dan pesan wajib diisi!");
+    return;
+  }
+
+  await db.collection("guestbook").add({
+    name,
+    message,
+    time: new Date()
   });
+
+  nameInput.value = "";
+  messageInput.value = "";
+});
+
+// REALTIME LISTENER (CHAT STYLE + LIMIT 15 + FIX ADMIN)
+db.collection("guestbook")
+  .orderBy("time", "desc")
+  .limit(15)
+  .onSnapshot((snapshot) => {
+
+    wishList.innerHTML = "";
+
+    let count = 0;
+
+    snapshot.forEach((doc, index) => {
+      const data = doc.data();
+      count++;
+
+      const alignClass = index % 2 === 0 ? "left" : "right";
+
+      wishList.innerHTML += `
+        <div class="chat-bubble ${alignClass}">
+          <div class="chat-name">${data.name}</div>
+          <div class="chat-message">${data.message}</div>
+
+          ${isAdmin ? `
+            <button class="delete-btn" onclick="deleteWish('${doc.id}')">
+              Hapus
+            </button>
+          ` : ""}
+        </div>
+      `;
+    });
+
+    wishCount.innerText = `${count} Ucapan`;
+  });
+
+// ADMIN LOGIN
+function adminLogin(){
+  const email = prompt("Admin Email");
+  const password = prompt("Password");
+
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      alert("Login sukses sebagai admin");
+    })
+    .catch((err) => {
+      alert("Login gagal: " + err.message);
+    });
 }
 
-setInterval(cleanDisqusAds, 500);
+// CHECK ADMIN STATUS
+auth.onAuthStateChanged((user) => {
+  if(user){
+    isAdmin = true;
+    console.log("Admin login:", user.email);
+  } else {
+    isAdmin = false;
+  }
+});
 
-window.addEventListener('load', cleanDisqusAds);
+// DELETE WISH
+function deleteWish(id){
+  if(confirm("Hapus ucapan ini?")){
+    db.collection("guestbook").doc(id).delete();
+  }
+}
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check.js";
+
+// Firebase config kamu (JANGAN DIHAPUS)
+const app = initializeApp(firebaseConfig);
+
+// 🔐 APP CHECK
+const appCheck = getAppCheck(app, {
+  provider: new ReCaptchaV3Provider("6Lc3z_EsAAAAAF4OpQr6u0mNl1Qb8mTW9N6a9L3D"),
+  isTokenAutoRefreshEnabled: true
+});
 </script>
 
 </body>
